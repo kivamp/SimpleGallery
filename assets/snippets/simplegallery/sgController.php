@@ -46,10 +46,13 @@ if (!class_exists('DLsgController', false)) {
                                     'input'   => $ph[$imageField],
                                     'options' => $value
                                 ));
-                                $info = getimagesize(MODX_BASE_PATH . $ph['thumb' . $postfix . $imageField]);
-                                if ($info) {
-                                    $ph['thumb' . $postfix . 'width.' . $imageField] = $info[0];
-                                    $ph['thumb' . $postfix . 'height.' . $imageField] = $info[1];
+                                $fileFull = urldecode((MODX_BASE_PATH . $ph['thumb.' . $imageField]);
+                                if (file_exists($fileFull)) {
+                                    $info = getimagesize(MODX_BASE_PATH . $ph['thumb' . $postfix . $imageField]);
+                                    if ($info) {
+                                        $ph['thumb' . $postfix . 'width.' . $imageField] = $info[0];
+                                        $ph['thumb' . $postfix . 'height.' . $imageField] = $info[1];
+                                    }
                                 }
                             }
                         } else {
@@ -57,10 +60,13 @@ if (!class_exists('DLsgController', false)) {
                                 'input'   => $ph[$imageField],
                                 'options' => $thumbOptions
                             ));
-                            $info = getimagesize(MODX_BASE_PATH . $ph['thumb.' . $imageField]);
-                            if ($info) {
-                                $ph['thumb.width.' . $imageField] = $info[0];
-                                $ph['thumb.height.' . $imageField] = $info[1];
+                            $fileFull = urldecode((MODX_BASE_PATH . $ph['thumb.' . $imageField]);
+                            if (file_exists($fileFull)) {
+                                $info = getimagesize(MODX_BASE_PATH . $ph['thumb.' . $imageField]);
+                                if ($info) {
+                                    $ph['thumb.width.' . $imageField] = $info[0];
+                                    $ph['thumb.height.' . $imageField] = $info[1];
+                                }
                             }
                         }
                     }
